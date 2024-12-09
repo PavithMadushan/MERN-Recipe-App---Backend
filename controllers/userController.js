@@ -138,6 +138,10 @@ exports.loginUser = async (req, res) => {
 
     // Check password match
     const isMatch = await bcrypt.compare(req.body.password, user.password);
+
+    console.log("user.password",user.password)
+    console.log("isMatch..",isMatch)
+
     if (!isMatch) {
       return res.status(200).send({ message: "Password is incorrect", success: false });
     }
